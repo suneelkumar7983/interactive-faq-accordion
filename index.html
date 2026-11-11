@@ -1,0 +1,83 @@
+<style>
+  body {
+    font-family: sans-serif;
+    background-color: #f4f7f6;
+    display: flex;
+    justify-content: center;
+    padding-top: 30px;
+  }
+  .faq-container {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 350px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  }
+  .faq-item {
+    border-bottom: 1px solid #eee;
+    padding: 10px 0;
+  }
+  .question {
+    width: 100%;
+    text-align: left;
+    background: none;
+    border: none;
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    padding: 10px 0;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+  }
+  .answer {
+    display: none;
+    color: #555;
+    font-size: 14px;
+    line-height: 1.5;
+    padding-bottom: 10px;
+  }
+  .answer.active {
+    display: block;
+  }
+</style>
+
+<div class="faq-container">
+  <h2>Frequently Asked Questions</h2>
+
+  <div class="faq-item">
+    <button class="question">How long does a project take? <span>+</span></button>
+    <div class="answer">Most custom landing page features are delivered within 2 to 3 business days.</div>
+  </div>
+
+  <div class="faq-item">
+    <button class="question">Do you offer revisions? <span>+</span></button>
+    <div class="answer">Yes, every client project includes up to 3 rounds of free revisions to ensure 100% satisfaction.</div>
+  </div>
+
+  <div class="faq-item">
+    <button class="question">Are your designs mobile-friendly? <span>+</span></button>
+    <div class="answer">All components are built mobile-first so they look great on phones, tablets, and desktops.</div>
+  </div>
+</div>
+
+<script>
+  const questions = document.querySelectorAll('.question');
+  const answers = document.querySelectorAll('.answer');
+
+  questions.forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      const currentAnswer = this.nextElementSibling;
+      const isAlreadyOpen = currentAnswer.classList.contains('active');
+
+      answers.forEach(function(ans) {
+        ans.classList.remove('active');
+      });
+
+      if (!isAlreadyOpen) {
+        currentAnswer.classList.add('active');
+      }
+    });
+  });
+</script>
